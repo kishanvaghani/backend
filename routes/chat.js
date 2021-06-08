@@ -12,6 +12,7 @@ router.post('/', (req,res,next)=>{
 router.get('/getChat', (req,res,next)=>{
     // const findMail = `SELECT * FROM sub_email WHERE email = ?`;
     connection.query('SELECT * FROM chats', (err, results, fields) => {
+        // console.log(results);
         !err ? res.json(results) : res.json({ err });
     });
 })
