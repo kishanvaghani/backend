@@ -2,20 +2,11 @@ let express = require('express')
 let app = express();
 let dotenv = require('dotenv');
 dotenv.config();
+var cors = require('cors')
 const port = process.env.PORT || 3000;
 
-const option = app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-type,Accept"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Method",
-    "GET,POST,PATCH,DELETE,OPTIONS"
-  );
-  next();
-})
+
+app.use(cors())
 
 // middleware
 app.use(express.urlencoded({ extended: false }))
